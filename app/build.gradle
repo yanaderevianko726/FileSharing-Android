@@ -1,0 +1,142 @@
+/**
+ *
+ */
+
+apply plugin: 'com.android.application'
+
+// In the root folder of the project, you can find the template properties file
+// named 'signing.properties.txt'.
+// Rename it to 'signing.properties'
+// Be careful because Git may check it even though it is excluded in '.gitignore'.
+def localPropertiesFile = project.rootProject.file('signing.properties');
+def useLocalSigning = localPropertiesFile.exists()
+Properties localProperties = null
+
+if (useLocalSigning) {
+    localProperties = new Properties()
+    localProperties.load(localPropertiesFile.newDataInputStream())
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
+
+    signingConfigs {
+        gbDistribution {
+            if (useLocalSigning) {
+                storeFile file(localProperties.getProperty('signing.storeFile'))
+                keyAlias localProperties.getProperty('signing.keyAlias')
+                storePassword localProperties.getProperty('signing.storePassword')
+                keyPassword localProperties.getProperty('signing.keyPassword')
+            }
+        }
+    }
+
+    defaultConfig {
+        applicationId "com.genonbeta.TrebleShot"
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            applicationIdSuffix '.debug'
+            versionNameSuffix '-DEBUG'
+        }
+    }
+    flavorDimensions 'mode'
+    productFlavors {
+        fossReliant {
+            dimension 'mode'
+            signingConfig signingConfigs.gbDistribution
+        }
+        googlePlay {
+            dimension 'mode'
+            signingConfig signingConfigs.gbDistribution
+        }
+    }
+}
+
+task copyHebrewResources(type: Copy) {
+    // this task copies Hebrew related resources to a folder with iw alias
+    // If it is causing issues, removing will only affect Hebrew resources
+    // https://github.com/genonbeta/TrebleShot/issues/67 #67
+
+    File mergedResourcesDir = new File("${buildDir}/mergedResources")
+
+    if (!mergedResourcesDir.isDirectory())
+        mergedResourcesDir.mkdirs()
+
+    for (String resEach : android.sourceSets.main.res.srcDirs) {
+        File currentFolder = new File(resEach)
+
+        for (File folderContents : currentFolder.listFiles()) {
+            if (folderContents.name.endsWith("-he")) {
+                String iwNamedFolder = "${folderContents.name.substring(0, folderContents.name.lastIndexOf("-he"))}-iw"
+
+                from folderContents.path
+                into "${mergedResourcesDir.path}/${iwNamedFolder}"
+                println("Copying resource ${folderContents.path}")
+            }
+        }
+    }
+
+    println("Adding merged resource directories to the resources array ${mergedResourcesDir.path}")
+    android.sourceSets.main.res.srcDirs += mergedResourcesDir.path
+}
+
+preBuild.dependsOn copyHebrewResources
+
+dependencies {
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    testImplementation 'junit:junit:4.12'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'androidx.preference:preference:1.0.0'
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha05'
+    //todo: alpha07 has changes that need to applied.
+
+    //implementation 'com.genonbeta.android:framework:1.0.2.6-local69'
+    implementation 'com.genonbeta.android:framework:1.0.2.8'
+    implementation 'com.genonbeta.android:gdatabase:1.0.2.6.1'
+    implementation 'com.genonbeta.coolsocket:main:1.0.3.1'
+
+    // 3.3.2 requires minimum Android SDK 16, so core version changes should be made in accordance
+    // with min SDK version
+    implementation 'com.google.zxing:core:3.3.0'
+    implementation 'org.nanohttpd:nanohttpd:2.2.0'
+    implementation 'com.velitasali.tools.android:zxing:3.6.3'
+
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    annotationProcessor 'androidx.annotation:annotation:1.0.2'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.8.0'
+
+    googlePlayImplementation 'com.anjlab.android.iab.v3:library:1.0.44'
+
+    implementation 'com.google.android.gms:play-services-ads:19.2.0'
+
+    implementation 'co.aenterhy:toggleswitch:1.0.0'
+
+
+}

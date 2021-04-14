@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<resources>
+    <plurals name="ques_deleteFile">
+	<item quantity="one">Bu dosyayı silmek istiyor musunuz?</item>
+	<item quantity="other">%d dosyayı silmek istiyor musunuz?</item>
+</plurals>
+    <plurals name="text_fileReceiveCompletedSummary">
+        <item quantity="one">%d dosya alındı</item>
+        <item quantity="other">%d dosya alındı</item>
+    </plurals>
+    <plurals name="text_itemSelected">
+        <item quantity="one">%d dosya seçildi</item>
+        <item quantity="other">%d dosya seçildi</item>
+    </plurals>
+    <plurals name="text_removeQueueSummary">
+	<item quantity="one">Bekleyen bu aktarım kaldırılacak</item>
+	<item quantity="other">%d bekleyen aktarım kaldırılacak</item>
+</plurals>
+    <plurals name="text_availableConnections">
+        <item quantity="one">%d bağlantı</item>
+        <item quantity="other">%d bağlantı</item>
+    </plurals>
+    <plurals name="ques_receiveMultipleFiles">
+        <item quantity="one">%d dosya alınsın mı?</item>
+        <item quantity="other">%d dosya alınsın mı?</item>
+    </plurals>
+    <plurals name="text_files">
+        <item quantity="one">%d dosya</item>
+        <item quantity="other">%d dosya</item>
+    </plurals>
+    <plurals name="text_secondsAgo">
+        <item quantity="one">%d saniye önce</item>
+        <item quantity="other">%d saniye önce</item>
+    </plurals>
+    <plurals name="text_minutesAgo">
+        <item quantity="one">Bir dakika önce</item>
+        <item quantity="other">%d dakika önce</item>
+    </plurals>
+    <plurals name="text_fileDeletionCompleted">
+	<item quantity="one">%d dosya silindi</item>
+	<item quantity="other">%d dosya silindi</item>
+</plurals>
+<plurals name="text_gridRow">
+	<item quantity="one">Tek sütun</item>
+	<item quantity="other">%d sütun</item>
+</plurals>
+    <plurals name="text_devicesShared">
+	<item quantity="one">Tekli paylaşım</item>
+	<item quantity="other">%d cihazla paylaşım</item>
+</plurals>
+</resources>

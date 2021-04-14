@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/text_advanced">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="load_thumbnails"
+            android:summary="@string/text_loadThumbnailsSummary"
+            android:title="@string/text_loadThumbnails" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="kill_service_on_exit"
+            android:summary="@string/text_killServiceAfterLeavingSummary"
+            android:title="@string/text_killServiceAfterLeaving" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nsd_enabled"
+            android:summary="@string/text_networkServiceDiscoverySummary"
+            android:title="@string/text_networkServiceDiscovery" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="developer_mode"
+            android:summary="@string/text_developerModeSummary"
+            android:title="@string/text_developerMode" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="allow_autoconnect"
+            android:summary="@string/text_autoStartSummary"
+            android:title="@string/text_autoStart" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="show_system_apps"
+            android:summary="@string/text_showSystemAppsSummary"
+            android:title="@string/text_showSystemApps" />
+    </PreferenceCategory>
+</PreferenceScreen>

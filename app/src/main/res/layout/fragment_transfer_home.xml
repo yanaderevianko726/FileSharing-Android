@@ -1,0 +1,19 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.genonbeta.TrebleShot.fragment.FragmentTransferHome">
+
+    <co.aenterhy.toggleswitch.ToggleSwitchButton
+        android:id="@+id/toggle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:bottom="@drawable/ic_receive"
+        app:glowRadius="150dp"
+        android:layout_centerInParent="true"
+        app:handleDrawable="@drawable/ic_share"
+        app:outerRadius="120dp"
+        app:upper="@drawable/ic_send" />
+
+</RelativeLayout>
