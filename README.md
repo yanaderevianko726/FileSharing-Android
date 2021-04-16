@@ -12,18 +12,14 @@
 * Speed-oriented: Minimal UI optimized for speed
 * Advanced features: Network change handling, choose network based on measured speed
 
-## Screenshots
+## Screenshot
 
-|                Screenshot               | Screenshot |
-|:---------------------------------------:|:-------------------------------------:|
-| ![screenshot](screens/screen_1.jpg)   | ![screenshot](screens/screen_2.jpg)     |
+|                Screenshot               |                 Screenshot            |               Screenshot              |
+|:---------------------------------------:|:-------------------------------------:|:-------------------------------------:|
+| ![screenshot](screens/screen_1.jpg)   | ![screenshot](screens/screen_2.jpg)     | ![screenshot](screens/screen_3.jpg)   |
 
-|                Screenshot               | Screenshot |
-|:---------------------------------------:|:-------------------------------------:|
-| ![screenshot](screens/screen_3.jpg)   | ![screenshot](screens/screen_4.jpg)     |
-
-|                Screenshot               | Screenshot |
-|:---------------------------------------:|:-------------------------------------:|
-| ![screenshot](screens/screen_5.jpg)   | ![screenshot](screens/screen_6.jpg)     |
+|                Screenshot               |                 Screenshot            |               Screenshot              |
+|:---------------------------------------:|:-------------------------------------:|:-------------------------------------:|
+| ![screenshot](screens/screen_4.jpg)   | ![screenshot](screens/screen_5.jpg)     | ![screenshot](screens/screen_6.jpg)   |
 
 This app is licensed under GNU Public License version 2.0 or later version.
